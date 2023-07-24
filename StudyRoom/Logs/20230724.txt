@@ -1,0 +1,16 @@
+Debug.Log 시작시간: 14시 11분쯤/이전
+Debug.Log 2시간 23분
+
+Debug.Log 쉬는시간 시작: 16시 34분
+Debug.Log 일단 20분만 쉬고 오겠습니다
+
+Debug.Log 컴백 : 16시 54분
+
+Debug.Log 1시간 17분
+
+Debug.Log 쉬는시간 시작: 18시 11분
+Debug.Log 20분만 쉬고옴 ㅅㄱ
+
+Debug.Log 컴백 : 18시 31분
+
+Debug.Log 20분 일찍 퇴근하겠음 앞에 1시간 일한거 땡겨서 : 18시 40분
