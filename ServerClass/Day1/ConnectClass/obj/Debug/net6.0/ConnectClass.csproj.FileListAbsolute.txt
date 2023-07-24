@@ -1,0 +1,15 @@
+E:\dev\Repositories\2023_Summer\ServerClass\Day1\ConnectClass\bin\Debug\net6.0\ConnectClass.exe
+E:\dev\Repositories\2023_Summer\ServerClass\Day1\ConnectClass\bin\Debug\net6.0\ConnectClass.deps.json
+E:\dev\Repositories\2023_Summer\ServerClass\Day1\ConnectClass\bin\Debug\net6.0\ConnectClass.runtimeconfig.json
+E:\dev\Repositories\2023_Summer\ServerClass\Day1\ConnectClass\bin\Debug\net6.0\ConnectClass.dll
+E:\dev\Repositories\2023_Summer\ServerClass\Day1\ConnectClass\bin\Debug\net6.0\ConnectClass.pdb
+E:\dev\Repositories\2023_Summer\ServerClass\Day1\ConnectClass\obj\Debug\net6.0\ConnectClass.csproj.AssemblyReference.cache
+E:\dev\Repositories\2023_Summer\ServerClass\Day1\ConnectClass\obj\Debug\net6.0\ConnectClass.GeneratedMSBuildEditorConfig.editorconfig
+E:\dev\Repositories\2023_Summer\ServerClass\Day1\ConnectClass\obj\Debug\net6.0\ConnectClass.AssemblyInfoInputs.cache
+E:\dev\Repositories\2023_Summer\ServerClass\Day1\ConnectClass\obj\Debug\net6.0\ConnectClass.AssemblyInfo.cs
+E:\dev\Repositories\2023_Summer\ServerClass\Day1\ConnectClass\obj\Debug\net6.0\ConnectClass.csproj.CoreCompileInputs.cache
+E:\dev\Repositories\2023_Summer\ServerClass\Day1\ConnectClass\obj\Debug\net6.0\ConnectClass.dll
+E:\dev\Repositories\2023_Summer\ServerClass\Day1\ConnectClass\obj\Debug\net6.0\refint\ConnectClass.dll
+E:\dev\Repositories\2023_Summer\ServerClass\Day1\ConnectClass\obj\Debug\net6.0\ConnectClass.pdb
+E:\dev\Repositories\2023_Summer\ServerClass\Day1\ConnectClass\obj\Debug\net6.0\ConnectClass.genruntimeconfig.cache
+E:\dev\Repositories\2023_Summer\ServerClass\Day1\ConnectClass\obj\Debug\net6.0\ref\ConnectClass.dll

@@ -1,0 +1,15 @@
+E:\dev\Repositories\2023_Summer\ServerClass\Day1\TcpClient\bin\Debug\net6.0\TcpClient.exe
+E:\dev\Repositories\2023_Summer\ServerClass\Day1\TcpClient\bin\Debug\net6.0\TcpClient.deps.json
+E:\dev\Repositories\2023_Summer\ServerClass\Day1\TcpClient\bin\Debug\net6.0\TcpClient.runtimeconfig.json
+E:\dev\Repositories\2023_Summer\ServerClass\Day1\TcpClient\bin\Debug\net6.0\TcpClient.dll
+E:\dev\Repositories\2023_Summer\ServerClass\Day1\TcpClient\bin\Debug\net6.0\TcpClient.pdb
+E:\dev\Repositories\2023_Summer\ServerClass\Day1\TcpClient\obj\Debug\net6.0\TcpClient.csproj.AssemblyReference.cache
+E:\dev\Repositories\2023_Summer\ServerClass\Day1\TcpClient\obj\Debug\net6.0\TcpClient.GeneratedMSBuildEditorConfig.editorconfig
+E:\dev\Repositories\2023_Summer\ServerClass\Day1\TcpClient\obj\Debug\net6.0\TcpClient.AssemblyInfoInputs.cache
+E:\dev\Repositories\2023_Summer\ServerClass\Day1\TcpClient\obj\Debug\net6.0\TcpClient.AssemblyInfo.cs
+E:\dev\Repositories\2023_Summer\ServerClass\Day1\TcpClient\obj\Debug\net6.0\TcpClient.csproj.CoreCompileInputs.cache
+E:\dev\Repositories\2023_Summer\ServerClass\Day1\TcpClient\obj\Debug\net6.0\TcpClient.dll
+E:\dev\Repositories\2023_Summer\ServerClass\Day1\TcpClient\obj\Debug\net6.0\refint\TcpClient.dll
+E:\dev\Repositories\2023_Summer\ServerClass\Day1\TcpClient\obj\Debug\net6.0\TcpClient.pdb
+E:\dev\Repositories\2023_Summer\ServerClass\Day1\TcpClient\obj\Debug\net6.0\TcpClient.genruntimeconfig.cache
+E:\dev\Repositories\2023_Summer\ServerClass\Day1\TcpClient\obj\Debug\net6.0\ref\TcpClient.dll
