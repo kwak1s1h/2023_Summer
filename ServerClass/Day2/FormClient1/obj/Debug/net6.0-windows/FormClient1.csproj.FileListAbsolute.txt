@@ -1,0 +1,17 @@
+E:\dev\Repositories\2023_Summer\ServerClass\Day2\FormClient1\bin\Debug\net6.0-windows\FormClient1.exe
+E:\dev\Repositories\2023_Summer\ServerClass\Day2\FormClient1\bin\Debug\net6.0-windows\FormClient1.deps.json
+E:\dev\Repositories\2023_Summer\ServerClass\Day2\FormClient1\bin\Debug\net6.0-windows\FormClient1.runtimeconfig.json
+E:\dev\Repositories\2023_Summer\ServerClass\Day2\FormClient1\bin\Debug\net6.0-windows\FormClient1.dll
+E:\dev\Repositories\2023_Summer\ServerClass\Day2\FormClient1\bin\Debug\net6.0-windows\FormClient1.pdb
+E:\dev\Repositories\2023_Summer\ServerClass\Day2\FormClient1\obj\Debug\net6.0-windows\FormClient1.csproj.AssemblyReference.cache
+E:\dev\Repositories\2023_Summer\ServerClass\Day2\FormClient1\obj\Debug\net6.0-windows\FormClient1.Form1.resources
+E:\dev\Repositories\2023_Summer\ServerClass\Day2\FormClient1\obj\Debug\net6.0-windows\FormClient1.csproj.GenerateResource.cache
+E:\dev\Repositories\2023_Summer\ServerClass\Day2\FormClient1\obj\Debug\net6.0-windows\FormClient1.GeneratedMSBuildEditorConfig.editorconfig
+E:\dev\Repositories\2023_Summer\ServerClass\Day2\FormClient1\obj\Debug\net6.0-windows\FormClient1.AssemblyInfoInputs.cache
+E:\dev\Repositories\2023_Summer\ServerClass\Day2\FormClient1\obj\Debug\net6.0-windows\FormClient1.AssemblyInfo.cs
+E:\dev\Repositories\2023_Summer\ServerClass\Day2\FormClient1\obj\Debug\net6.0-windows\FormClient1.csproj.CoreCompileInputs.cache
+E:\dev\Repositories\2023_Summer\ServerClass\Day2\FormClient1\obj\Debug\net6.0-windows\FormClient1.dll
+E:\dev\Repositories\2023_Summer\ServerClass\Day2\FormClient1\obj\Debug\net6.0-windows\refint\FormClient1.dll
+E:\dev\Repositories\2023_Summer\ServerClass\Day2\FormClient1\obj\Debug\net6.0-windows\FormClient1.pdb
+E:\dev\Repositories\2023_Summer\ServerClass\Day2\FormClient1\obj\Debug\net6.0-windows\FormClient1.genruntimeconfig.cache
+E:\dev\Repositories\2023_Summer\ServerClass\Day2\FormClient1\obj\Debug\net6.0-windows\ref\FormClient1.dll

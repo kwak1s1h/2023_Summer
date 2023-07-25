@@ -1,0 +1,15 @@
+E:\dev\Repositories\2023_Summer\ServerClass\Day1\SendClass\bin\Debug\net6.0\SendClass.exe
+E:\dev\Repositories\2023_Summer\ServerClass\Day1\SendClass\bin\Debug\net6.0\SendClass.deps.json
+E:\dev\Repositories\2023_Summer\ServerClass\Day1\SendClass\bin\Debug\net6.0\SendClass.runtimeconfig.json
+E:\dev\Repositories\2023_Summer\ServerClass\Day1\SendClass\bin\Debug\net6.0\SendClass.dll
+E:\dev\Repositories\2023_Summer\ServerClass\Day1\SendClass\bin\Debug\net6.0\SendClass.pdb
+E:\dev\Repositories\2023_Summer\ServerClass\Day1\SendClass\obj\Debug\net6.0\SendClass.csproj.AssemblyReference.cache
+E:\dev\Repositories\2023_Summer\ServerClass\Day1\SendClass\obj\Debug\net6.0\SendClass.GeneratedMSBuildEditorConfig.editorconfig
+E:\dev\Repositories\2023_Summer\ServerClass\Day1\SendClass\obj\Debug\net6.0\SendClass.AssemblyInfoInputs.cache
+E:\dev\Repositories\2023_Summer\ServerClass\Day1\SendClass\obj\Debug\net6.0\SendClass.AssemblyInfo.cs
+E:\dev\Repositories\2023_Summer\ServerClass\Day1\SendClass\obj\Debug\net6.0\SendClass.csproj.CoreCompileInputs.cache
+E:\dev\Repositories\2023_Summer\ServerClass\Day1\SendClass\obj\Debug\net6.0\SendClass.dll
+E:\dev\Repositories\2023_Summer\ServerClass\Day1\SendClass\obj\Debug\net6.0\refint\SendClass.dll
+E:\dev\Repositories\2023_Summer\ServerClass\Day1\SendClass\obj\Debug\net6.0\SendClass.pdb
+E:\dev\Repositories\2023_Summer\ServerClass\Day1\SendClass\obj\Debug\net6.0\SendClass.genruntimeconfig.cache
+E:\dev\Repositories\2023_Summer\ServerClass\Day1\SendClass\obj\Debug\net6.0\ref\SendClass.dll
