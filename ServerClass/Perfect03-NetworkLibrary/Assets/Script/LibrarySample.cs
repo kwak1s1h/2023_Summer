@@ -69,6 +69,7 @@ public class LibrarySample : MonoBehaviour {
 			if (recvSize > 0) {
 				string message = System.Text.Encoding.UTF8.GetString(buffer);
 				Debug.Log(message);
+				_receiveMsg += message + "\n";
 			}
 		}
 	}
@@ -124,9 +125,6 @@ public class LibrarySample : MonoBehaviour {
 			m_strings = "";
 		}
 		_receiveMsg = GUI.TextField(new Rect(220, 300, 300, 100), _receiveMsg);
-		byte[] receiveBuffer = new byte[1024];
-		m_transport.Receive(ref receiveBuffer, 1024);
-		_receiveMsg += System.Text.Encoding.UTF8.GetString(receiveBuffer) + "\n";
 		m_strings = GUI.TextField(new Rect(220, 400, 300, 30), m_strings);
 		if (GUI.Button (new Rect (220,450,150,20), "Send message")) {
 			byte[] buffer = System.Text.Encoding.UTF8.GetBytes(m_strings);	
@@ -139,9 +137,6 @@ public class LibrarySample : MonoBehaviour {
 	{
 		// 클라이언트를 선택했을 때 접속할 서버의 주소를 입력합니다.
 		_receiveMsg = GUI.TextField(new Rect(220, 300, 300, 100), _receiveMsg);
-		byte[] receiveBuffer = new byte[1024];
-		m_transport.Receive(ref receiveBuffer, 1024);
-		_receiveMsg += System.Text.Encoding.UTF8.GetString(receiveBuffer) + "\n";
 		m_strings = GUI.TextField(new Rect(220, 400, 300, 30), m_strings);
 		if (GUI.Button (new Rect (220,450,150,20), "Send message")) {
 			byte[] buffer = System.Text.Encoding.UTF8.GetBytes(m_strings);	
