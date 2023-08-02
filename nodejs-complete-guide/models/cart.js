@@ -40,7 +40,9 @@ module.exports = class Cart {
       }
       const updatedCart = { ...JSON.parse(content) };
       const product = updatedCart.products.find(prod => prod.id === id);
-      console.log(product);
+      if(!product) {
+        return;
+      }
       const productQty = product.qty;
       updatedCart.products = updatedCart.products.filter(prod => prod.id !== id);
       updatedCart.totalPrice = updatedCart.totalPrice - productPrice * productQty;
@@ -59,7 +61,6 @@ module.exports = class Cart {
       } else {
         cb(cart)
       }
-      cb(cart);
     });
   }
 }
