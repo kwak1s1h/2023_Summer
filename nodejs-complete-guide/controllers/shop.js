@@ -15,9 +15,8 @@ exports.getProducts = (req, res, next) => {
 
 exports.getProduct = (req, res, next) => {
   const prodId = req.params.productId;
-  Product.findById(prodId)
-    .then(([rows, fieldData]) => {
-      let product = rows[0];
+  Product.findByPk(prodId)
+    .then((product) => {
       if(!product) {
         res.redirect('/products');
         return;

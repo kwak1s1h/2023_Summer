@@ -1,4 +1,4 @@
-const { Sequelize, NUMBER, INTEGER, STRING, DOUBLE } = require('sequelize');
+const { NUMBER, INTEGER, STRING, DOUBLE } = require('sequelize');
 
 const sequelize = require('../util/database.js');
 
