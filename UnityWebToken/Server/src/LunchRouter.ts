@@ -4,20 +4,21 @@ import axios from "axios";
 import { CheerioAPI, load } from "cheerio";
 import { Pool } from "./DB";
 import { RowDataPacket } from "mysql2/promise";
+import { MessageType, ResponseMSG } from "./Types";
 
 export const lunchRouter = Router();
 
 lunchRouter.get('/', (req, res) => res.redirect('/lunch'));
 
 lunchRouter.get('/lunch', async (req, res) => {
-    let date: string = getToday();
-    if(req.query.date) date = req.query.date as string;
+    let date: string = req.query.date as string || getToday();
 
     let result = await getDataFromDB(date);
     if(result) {
         let data = result[0];
         let menus = JSON.parse(data.menu);
-        res.render('lunch', {menus, date});
+        let resPacket: ResponseMSG = {type: MessageType.SUCCESS, message: JSON.stringify({data, menus})};
+        res.json(resPacket);
         return;
     }
 
@@ -32,7 +33,8 @@ lunchRouter.get('/lunch', async (req, res) => {
     const $: CheerioAPI = load(decoded);
     let menus: string[] = $(".menuName > span").text().split('\n').map(s => s.replace(/[0-9]+\./g, '')).filter(s => s != "");
     const json = {date, menus};
-    res.render("lunch", json);
+    let resPacket: ResponseMSG = {type: MessageType.SUCCESS, message: JSON.stringify(json)};
+    res.json(resPacket);
 
     if(menus.length > 0)
     await Pool.execute("INSERT INTO lunch(date, menu) VALUES(?, ?)", [date, JSON.stringify(menus)]);

@@ -1,0 +1,16 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="LunchUI" src="project://database/Assets/09.UI/LunchUI/LunchUI.uxml?fileID=9197481963319205126&amp;guid=724b0da5f81b54b458f279aceea8d28b&amp;type=3#LunchUI" />
+    <Style src="project://database/Assets/09.UI/common.uss?fileID=7433441132597879392&amp;guid=903916b8d40453b4282beb3d287b966b&amp;type=3#common" />
+    <Style src="project://database/Assets/09.UI/MessageBox/MessageTemplate.uss?fileID=7433441132597879392&amp;guid=1830febf87d84d9418771a5dbc64e2b5&amp;type=3#MessageTemplate" />
+    <ui:VisualElement name="Container" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+        <ui:VisualElement name="TopBar" style="background-color: rgb(190, 190, 190); flex-basis: 80px; flex-direction: row; align-items: center; justify-content: flex-end; padding-left: 20px; padding-right: 20px;">
+            <ui:Button text="점심보기" display-tooltip-when-elided="true" name="LunchBtn" class="btn" />
+            <ui:Button text="인벤토리" display-tooltip-when-elided="true" name="InventoryBtn" class="btn" />
+            <ui:Button text="로그인" display-tooltip-when-elided="true" name="LoginBtn" class="btn" />
+        </ui:VisualElement>
+        <ui:VisualElement name="Content" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); align-items: center; justify-content: center;">
+            <ui:Instance template="LunchUI" name="LunchUI" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="MessageContainer" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); position: absolute; bottom: 0; right: 0;" />
+</ui:UXML>
