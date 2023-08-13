@@ -1,13 +1,49 @@
-export enum MessageType
+export enum MessageType 
 {
     ERROR = 1,
     SUCCESS = 2,
     EMPTY = 3
 }
 
-export interface ResponseMSG
+export interface ResponseMSG 
 {
-    type: MessageType,
+    type:MessageType,
     message: string,
     color?: "#000"
+}
+
+export interface UserVO 
+{
+    id:number,
+    email:string,
+    exp:number,
+    name:string
+}
+
+export interface TokenUser 
+{
+    id:number,
+    email:string,
+    xp:number,
+    name:string
+}
+
+export interface ItemVO
+{
+    itemCode: number,
+    count: number,
+    slotNumber: number
+}
+
+export interface InventoryVO
+{
+    count: number;
+    list: ItemVO[];
+}
+
+export interface SlotVO
+{
+    success?: boolean;
+    score?: number;
+    money?: number;
 }

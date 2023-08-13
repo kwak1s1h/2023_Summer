@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -8,27 +7,46 @@ public class LoginUI : WindowUI
 {
     private TextField _emailField;
     private TextField _passwordField;
-
+    
+    
     public LoginUI(VisualElement root) : base(root)
     {
-        _emailField = _root.Q<TextField>(name: "EmailInput");
-        _passwordField = _root.Q<TextField>(name: "PasswordInput");
-        _root.Q<Button>(name: "OkBtn").RegisterCallback<ClickEvent>(OnLoginButtonHandle);
-        _root.Q<Button>(name: "CancelBtn").RegisterCallback<ClickEvent>(OnCloseButtonHandle);
+        _emailField = _root.Q<TextField>("EmailInput");
+        _passwordField = _root.Q<TextField>("PasswordInput");
+        
+        _root.Q<Button>("OkBtn").RegisterCallback<ClickEvent>(OnLoginBtnHandle);
+        _root.Q<Button>("CancelBtn").RegisterCallback<ClickEvent>(OnCancelBtnHandle);
     }
 
-    private void OnLoginButtonHandle(ClickEvent evt)
+    public const string TokenKey = "token";
+    private void OnLoginBtnHandle(ClickEvent evt)
     {
-        LoginDTO payload = new LoginDTO { email = _emailField.value, password = _passwordField.value };
-        NetworkManager.Instance.PostRequest("user/login", payload, (type, json) =>
+        //입력값 검증이 들어가야해. 
+        LoginDTO loginDTO = new LoginDTO
         {
-            Debug.Log(type);
-            Debug.Log(json);
-        });
+            email = _emailField.value,
+            password = _passwordField.value
+        };
+        NetworkManager.Instance.PostRequest("user/login", loginDTO, (type, json) =>
+        {
+            if (type == MessageType.SUCCESS)
+            {
+                TokenResponseDTO dto = JsonUtility.FromJson<TokenResponseDTO>(json);
+                PlayerPrefs.SetString(TokenKey, dto.token);
+                //로그인 창이 닫히고 위에가 변하도록
+                UIController.Instance.SetLogin(dto.user);
+                Close();
+            }
+            else
+            {
+                UIController.Instance.Message.AddMessage(json, 3f);   
+            }
+        });                
     }
-
-    private void OnCloseButtonHandle(ClickEvent evt)
+    
+    private void OnCancelBtnHandle(ClickEvent evt)
     {
+        //이건 과제로 줄께
         Close();
     }
 }

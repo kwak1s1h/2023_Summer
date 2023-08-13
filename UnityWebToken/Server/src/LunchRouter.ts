@@ -1,56 +1,65 @@
-import { Router } from "express";
-import iconv from "iconv-lite";
+import { Router, Request, Response } from "express";
 import axios from "axios";
-import { CheerioAPI, load } from "cheerio";
+import {load, CheerioAPI} from "cheerio"
+import iconv from 'iconv-lite';
 import { Pool } from "./DB";
-import { RowDataPacket } from "mysql2/promise";
-import { MessageType, ResponseMSG } from "./Types";
+import { RowDataPacket} from 'mysql2/promise'
+import { ResponseMSG, MessageType } from "./Types";
 
-export const lunchRouter = Router();
+export const lunchRouter = Router(); //익스프레스 라우터가 하나 만들어진다.
 
-lunchRouter.get('/', (req, res) => res.redirect('/lunch'));
+lunchRouter.get("/lunch", async (req: Request, res:Response)=>{
 
-lunchRouter.get('/lunch', async (req, res) => {
-    let date: string = req.query.date as string || getToday();
+    let date:string | undefined = req.query.date as string | undefined;
 
-    let result = await getDataFromDB(date);
-    if(result) {
-        let data = result[0];
-        let menus = JSON.parse(data.menu);
-        let resPacket: ResponseMSG = {type: MessageType.SUCCESS, message: JSON.stringify({data, menus})};
+    if(date == undefined)
+    {
+        date = "20230703";
+    }
+
+    let result = await GetDataFromDB(date); //DB에 데이터가 있는 지 확인
+    if(result != null)
+    {
+        //DB정보를 보내주면 된다.
+        let json = {date, menus: JSON.parse(result[0].menu)};
+        //res.render("lunch", json);
+        let resPacket : ResponseMSG = {type: MessageType.SUCCESS, message: JSON.stringify(json)};
         res.json(resPacket);
         return;
     }
+    
+    const url :string = `https://ggm.hs.kr/lunch.view?date=${date}`;  // C#에서 $"" 랑 같은역할
 
-    const host: string = "ggm.hs.kr";
-    const url: string = `https://${host}/lunch.view?date=${date}`;
+    let html = await axios({url, method:"GET", responseType:"arraybuffer"}); //비동기 함수 Async Task
+    
+    //데이터 통신은 모든 데이터를 바이트 스트림으로 통신한다. 
+    let data : Buffer = html.data;
+    let decoded = iconv.decode(data, "euc-kr");
 
-    let axiosRes = await axios({url, method: 'GET', responseType: "arraybuffer", });
+    const $ : CheerioAPI = load(decoded); //HTML 문자열을 Cheerio에서 로드해서 Cheerio객체로 만든다.
 
-    let data: Buffer = axiosRes.data;
-    let decoded = iconv.decode(data, 'euc-kr');
-
-    const $: CheerioAPI = load(decoded);
-    let menus: string[] = $(".menuName > span").text().split('\n').map(s => s.replace(/[0-9]+\./g, '')).filter(s => s != "");
+    let text:string = $(".menuName > span").text();
+    let menus:string[] = text.split("\n").map(x => x.replace(/[0-9]+\./g, "")).filter(x => x.length > 0);
+    
     const json = {date, menus};
-    let resPacket: ResponseMSG = {type: MessageType.SUCCESS, message: JSON.stringify(json)};
+    //res.render("lunch", json);
+
+    let resPacket : ResponseMSG = {type: MessageType.SUCCESS, message: JSON.stringify(json)};
     res.json(resPacket);
 
-    if(menus.length > 0)
     await Pool.execute("INSERT INTO lunch(date, menu) VALUES(?, ?)", [date, JSON.stringify(menus)]);
 });
 
-async function getDataFromDB(date: string): Promise<RowDataPacket[] | null> {
-    const sql = 'SELECT * FROM lunch WHERE date = ?';
-    let [rows, fieldData]: [RowDataPacket[], any] = await Pool.query(sql, [date]);
-    return rows.length > 0 ? rows : null;
-}
 
-function getToday(){
-    var date = new Date();
-    var year = date.getFullYear();
-    var month = ("0" + (1 + date.getMonth())).slice(-2);
-    var day = ("0" + date.getDate()).slice(-2);
+async function GetDataFromDB(date : string)
+{
+    
+    const test:string = `SELECT * FROM users WHERE password = '1234' AND email = '1' OR '1'`;
 
-    return year + month + day;
+
+    const sql:string = "SELECT * FROM lunch WHERE date = ?";
+    let [row, col] = await Pool.query(sql, [date]);
+    row = row as RowDataPacket[];
+
+    return row.length > 0 ? row : null;
 }

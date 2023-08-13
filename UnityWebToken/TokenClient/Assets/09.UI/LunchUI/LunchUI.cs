@@ -1,5 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -8,13 +11,13 @@ public class LunchUI : WindowUI
 {
     private TextField _dateTextField;
     private Label _lunchLabel;
-
+    
     public LunchUI(VisualElement root) : base(root)
     {
-        _lunchLabel = _root.Q<Label>(name: "LunchLabel");
-        _dateTextField = _root.Q<TextField>(name: "DateTextField");
-        _root.Q<Button>(name: "LoadBtn").RegisterCallback<ClickEvent>(OnLoadButtonHandle);
-        _root.Q<Button>(name: "CloseBtn").RegisterCallback<ClickEvent>(OnCloseButtonHandle);
+        _dateTextField = root.Q<TextField>("DateTextField");
+        root.Q<Button>("LoadBtn").RegisterCallback<ClickEvent>(OnLoadButtonHandle);
+        root.Q<Button>("CloseBtn").RegisterCallback<ClickEvent>(OnCloseButtonHandle);
+        _lunchLabel = root.Q<Label>("LunchLabel");
     }
 
     private void OnLoadButtonHandle(ClickEvent evt)
@@ -23,33 +26,28 @@ public class LunchUI : WindowUI
         Regex regex = new Regex(@"20[0-9]{2}[0-1][0-9][0-3][0-9]");
         if(!regex.IsMatch(dateStr))
         {
-            UIController.Instance.MessageSystem.AddMessage("ÀÌ·¯½Ã´Â ÀÌÀ¯°¡ ÀÖÀ» °Å ¾Æ´Ï¿¡¿ä", 2);
+            UIController.Instance.Message.AddMessage("ì˜¬ë°”ë¥¸ ë‚ ì§œ í˜•ì‹ì„ ì§€ì¼œì£¼ì„¸ìš” (ex. 20230703)", 3f);
             return;
         }
 
-
-        NetworkManager.Instance.GetRequest("lunch", $"?date={dateStr}", (type, msg) =>
+        NetworkManager.Instance.GetRequest("lunch", $"?date={dateStr}", (type, json) =>
         {
-            if(type == MessageType.SUCCESS)
+            if (type == MessageType.SUCCESS)
             {
-                LunchVO lunch = JsonUtility.FromJson<LunchVO>(msg);
-                string menuStr = "";
-                foreach(string menu in lunch.menus)
-                {
-                    menuStr += menu;
-                    menuStr += "\n";
-                }
+                LunchVO vo = JsonUtility.FromJson<LunchVO>(json);
+                string menuStr = vo.menus.Aggregate("", (sum, x)=> sum + x + "\n");
+
                 _lunchLabel.text = menuStr;
             }
             else
             {
-                UIController.Instance.MessageSystem.AddMessage(msg, 2);
-            }
+                Debug.LogError(json);
+            }    
         });
     }
 
     private void OnCloseButtonHandle(ClickEvent evt)
     {
-        Close();
+        this.Close();
     }
 }

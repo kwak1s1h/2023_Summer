@@ -39,7 +39,7 @@ public class MessageTemplate
             _fade = true;
         }
 
-        if(_currentTimer >= _timer + 0.6f)
+        if (_currentTimer >= _timer + 0.6f)   //트랜지션 시간까지 해서 사라지는게 완료되면
         {
             _isComplete = true;
         }
